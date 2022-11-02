@@ -34,7 +34,8 @@ img {
     background-color: white;
 }
 
-.site_header {
+.site_header,
+.main_profile {
     height: 70px;
     background-color: #EAEAEA;
 }
@@ -80,3 +81,4 @@ img {
     height: 80px;
     border: 1px solid #F5F5F5;
 }
+

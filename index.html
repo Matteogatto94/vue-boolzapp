@@ -38,7 +38,7 @@
                                 <i class="fa-solid fa-ellipsis-vertical"></i>
                             </div>
                         </header>
-                        <!-- /.site_header -->
+                        <!-- /site_header -->
                         <main class="site_main">
                             <section class="jumbotron d-flex align-items-center px-3">
                                 <div class="image d-flex align-items-center justify-content-center me-2 ">
@@ -59,18 +59,23 @@
                             </section>
                             <section class="contacts">
                                 <div class="contact d-flex align-items-center" v-for="person in contacts">
-                                    <div class="image"><img :src="'./assets/img/avatar'+ person.avatar +'.jpg'" alt=""></div>
+                                    <div class="image">
+                                        <img :src="'./assets/img/avatar'+ person.avatar +'.jpg'" alt="">
+                                    </div>
+
+                                    <div class="name">
+                                        <p>{{person.name}}</p>
+                                    </div>
                                 </div>
                             </section>
                         </main>
-                        <!-- /.site_main -->
                     </div>
 
 
 
                     <div class="right_chat">
-                        <header class="site_header d-flex align-items-center justify-content-between px-3">
-                            <div class="left_header d-flex align-items-center">
+                        <section class="main_profile d-flex align-items-center justify-content-between px-3">
+                            <div class="d-flex align-items-center">
                                 <div class="image"><img src="assets/img/avatar_1.jpg" alt=""></div>
                                 <div class="contact_details">
                                     <div class="name">Michele</div>
@@ -78,22 +83,33 @@
                                 </div>
 
                             </div>
-                            <div class="right_header d-flex">
+                            <div class="d-flex">
                                 <i class="fa-solid fa-magnifying-glass me-3"></i>
                                 <i class="fa-solid fa-paperclip  me-3"></i>
                                 <i class="fa-solid fa-ellipsis-vertical"></i>
                             </div>
-                        </header>
+
+                            
+                        </section>
+
+                        <section class="text_message">
+                            <div class="input-group">
+                                <span class="input-group-text "><i class="fa-regular fa-face-smile"></i></span>
+                                <input type="text" class="form-control rounded" placeholder="Scrivi un messaggio">
+                                <span class="input-group-text"><i class="fa-solid fa-microphone"></i></span>
+                              </div>
+                        </section>
                     </div>
                 </div>
+
             </div>
         </div>
 
+        <div class="bottom">
+           
+        </div>
 
-        <!-- /.page_top -->
-        <div class="bottom"></div>
-        <!-- /.page_bottom -->
-
+        
 
     </div>
 
