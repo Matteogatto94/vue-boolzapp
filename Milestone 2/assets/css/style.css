@@ -23,6 +23,10 @@ img {
     width: 100%;
 }
 
+.right_header i {
+    color: #B1B1B1;
+}
+
 .bottom {
     background-color: var(--bg-second_color);
     height: calc(100vh - 110px);
@@ -66,22 +70,23 @@ img {
 }
 
 .send {
-    align-self: flex-end;
     background-color: #D5F9BA;
-    padding: 0.5rem;
+    padding: 0.5rem 1.5rem;
     margin-top:1rem;
     text-align: end;
     border-radius: 2rem;
-
+    width: fit-content;
+    align-self: end;
 }
 
 .received {
-    align-self: flex-start;
     background-color: white;
-    padding: 0.5rem;
+    padding: 0.5rem 1.5rem;
     margin-top:1rem;
     text-align: start;
     border-radius: 2rem;
+    width: fit-content;
+    align-self: start;
 }
 
 
@@ -126,4 +131,25 @@ img {
     height: 80px;
     border: 1px solid #F5F5F5;
 }
+
+.active_chat{
+    background-color: #E9EBEB;
+}
+
+.text_grey {
+    color: #BBB9C6;
+}
+
+.last_access {
+    color: #6B7376;
+}
+
+.contact:hover {
+    cursor: pointer;
+}
+
+.choose_contact i {
+    color: #B1B1B1;
+}
+
 

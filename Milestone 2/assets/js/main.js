@@ -8,6 +8,8 @@ const { createApp } = Vue
 createApp({
 data() {
 return {
+    mex :'',
+    active: 0,
     contacts: [
         {
             name: 'Michele',
@@ -172,5 +174,27 @@ return {
         }
     ]
 }
-}
+},
+
+methods: {
+    changeActive(index) {
+        this.active = index;
+        const support = this.contacts[this.active].messages;
+        support.forEach(message => {
+          if(message.status === 'received'){
+              this.mex = message.date.slice(11, 16)
+          }
+        });
+    },
+
+},
+
+mounted() {
+    const support = this.contacts[this.active].messages;
+    support.forEach(message => {
+      if(message.status === 'received'){
+          this.mex = message.date.slice(11, 16)
+      }
+    });
+  }
 }).mount('#app')
