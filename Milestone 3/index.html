@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Titolo Documento-->
+    <title>vue-boolzapp</title>
+
+    <!--Link File CSS-->
+    <link rel="stylesheet" href="./assets/css/style.css">
+
+    <!--Link Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+    <!-- Link Font Awesome-->
+    <script src="https://kit.fontawesome.com/641e4c79bb.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    
+    <div id="app">
+        <div class="top">
+            <div class="container">
+                <div class="chat d-flex">
+                    <div class="left_chat">
+                        <header class="site_header d-flex align-items-center justify-content-between px-3">
+                            <div class="left_header d-flex align-items-center">
+                                <div class="image">
+                                    <img src="assets/img/avatar_io.jpg" alt="">
+                                </div>
+                                <div class="name">Sofia</div>
+
+                            </div>
+                            <div class="right_header d-flex">
+                                <i class="fa-solid fa-circle-notch me-3"></i>
+                                <i class="fa-solid fa-message me-3"></i>
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                            </div>
+                        </header>
+                        <!-- /site_header -->
+                        <main class="site_main">
+                            <section class="jumbotron d-flex align-items-center px-3">
+                                <div class="image d-flex align-items-center justify-content-center me-2">
+                                    <i class="fa-solid fa-bell-slash"></i>
+                                </div>
+                                <div class="pt-2">
+                                    <h5>Ricevi notifiche di nuovi messaggi</h5>
+                                    <a href="#">Attiva notifiche Desktop</a>
+                                </div>
+
+                            </section>
+                            <section class="search p-2">
+                                <div class="input-group">
+                                    <div class="input-group-text"><i class="fa-solid fa-magnifying-glass me-3"></i>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat">
+                                </div>
+                            </section>
+                            <section class="contacts">
+                                <div :class=" index == active ? 'active_chat' : '' " class="contact d-flex align-items-center" v-for="(person, index) in contacts" @click="changeActive(index)">
+                                    <div class="image">
+                                        <img :src="'./assets/img/avatar'+ person.avatar +'.jpg'" alt="">
+                                    </div>
+
+                                    <div class="name">
+                                        <p>{{person.name}}</p>
+                                        <p class="text_grey" :class=" person.messages[person.messages.length-1].status =='sent' ? 'visto' : '' "> {{ person.messages[person.messages.length-1].message}}</p>
+                                    </div>
+                                </div>
+                            </section>
+                        </main>
+                    </div>
+
+
+
+                    <div class="right_chat">
+                        <section class="main_profile d-flex align-items-center justify-content-between px-3">
+                            <div class="d-flex align-items-center">
+                                <div class="image"><img src="assets/img/avatar_1.jpg" alt=""></div>
+                                <div class="contact_details">
+                                    <div class="name">{{contacts[active].name}}</div>
+                                    <div class="last_access px-3">Ultimo accesso oggi alle {{mex}}</div>
+                                </div>
+
+                            </div>
+                            <div class="d-flex choose_contact">
+                                <i class="fa-solid fa-magnifying-glass me-3"></i>
+                                <i class="fa-solid fa-paperclip  me-3"></i>
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                            </div>
+
+                        </section> 
+
+                        <section class="messages" v-for="message in contacts[active].messages" :class=" message.status === 'sent' ? 'send' : 'received'">
+                            <div>{{message.message}}</div>
+                            <div>{{message.date.slice(11, 16)}}</div>
+                        </section>
+
+
+
+                        <section class="text_message">
+                            <div class="input-group">
+                                <span class="input-group-text "><i class="fa-regular fa-face-smile"></i></span>
+                                <input type="text" class="form-control rounded" placeholder="Scrivi un messaggio">
+                                <span class="input-group-text"><i class="fa-solid fa-microphone"></i></span>
+                              </div>
+                        </section>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="bottom">
+            
+        </div>
+
+        
+
+    </div>
+
+    <!--Link File JS-->
+    <script src='https://cdn.jsdelivr.net/npm/vue@3.2.41/dist/vue.global.min.js'></script>
+    <script src="./assets/js/main.js"></script>
+</body>
+</html>

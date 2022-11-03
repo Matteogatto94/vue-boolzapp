@@ -1,0 +1,155 @@
+* {
+    padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+:root {
+    --bg-first_color: #009688;
+    --bg-second_color: #DADBD4;
+    --bg-new_notification: #8EDAFC;
+
+}
+
+img {
+    max-width: 100%;
+}
+
+.top {
+    padding-top: 2rem;
+    position: relative;
+    height: 110px;
+    background-color: var(--bg-first_color);
+    width: 100%;
+}
+
+.right_header i {
+    color: #B1B1B1;
+}
+
+.bottom {
+    background-color: var(--bg-second_color);
+    height: calc(100vh - 110px);
+}
+
+.chat {
+    height: calc(100vh - 50px);
+    width: 100%;
+    background-color: white;
+}
+
+.site_header,
+.main_profile {
+    height: 70px;
+    background-color: #EAEAEA;
+}
+
+.left_chat {
+    width: 600px;
+    height: 100%;
+}
+
+.right_chat {
+    width: calc(100% - 600px);
+    height: 100%;
+    background-image: url(../img/mine.jpg);
+    border-left: 1px solid lightgray;
+    position: relative;
+}
+
+.text_message {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.messages {
+    display: flex;
+    flex-direction: column;
+    padding: 3rem;
+}
+
+.send {
+    background-color: #D5F9BA;
+    padding: 0.5rem 1.5rem;
+    margin-top:1rem;
+    text-align: end;
+    border-radius: 2rem;
+    width: fit-content;
+    align-self: end;
+}
+
+.received {
+    background-color: white;
+    padding: 0.5rem 1.5rem;
+    margin-top:1rem;
+    text-align: start;
+    border-radius: 2rem;
+    width: fit-content;
+    align-self: start;
+}
+
+
+.image img{
+    height: 60px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    object-fit: contain;
+}
+
+.image {
+    background-color: white;
+    height: 60px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+}
+
+.image i {
+    color: var(--bg-new_notification);
+    font-size: 1.5rem;
+}
+
+.left_chat .jumbotron{
+    height: 80px;
+    background-color: var(--bg-new_notification);
+}
+
+.search{
+    height: 50px;
+}
+
+.name {
+    margin-left: 1rem;
+}
+
+.form-control {
+    border-radius: 0;
+    font-size: 1.5rem;
+}
+
+.contact{
+    height: 80px;
+    border: 1px solid #F5F5F5;
+}
+
+.active_chat{
+    background-color: #E9EBEB;
+}
+
+.text_grey {
+    color: #BBB9C6;
+}
+
+.last_access {
+    color: #6B7376;
+}
+
+.contact:hover {
+    cursor: pointer;
+}
+
+.choose_contact i {
+    color: #B1B1B1;
+}
+
+
