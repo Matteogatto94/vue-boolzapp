@@ -50,10 +50,40 @@ img {
     height: 100%;
     background-image: url(../img/mine.jpg);
     border-left: 1px solid lightgray;
+    position: relative;
+}
+
+.text_message {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.messages {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    padding: 3rem;
 }
+
+.send {
+    align-self: flex-end;
+    background-color: #D5F9BA;
+    padding: 0.5rem;
+    margin-top:1rem;
+    text-align: end;
+    border-radius: 2rem;
+
+}
+
+.received {
+    align-self: flex-start;
+    background-color: white;
+    padding: 0.5rem;
+    margin-top:1rem;
+    text-align: start;
+    border-radius: 2rem;
+}
+
 
 .image img{
     height: 60px;
