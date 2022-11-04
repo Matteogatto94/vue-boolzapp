@@ -11,6 +11,7 @@ data() {
 return {
     mex :'',
     active: 0,
+    messageText: '',
     contacts: [
         {
             name: 'Michele',
@@ -190,12 +191,18 @@ methods: {
 
 },
 
-mounted() {
-    const support = this.contacts[this.active].messages;
-    support.forEach(message => {
-      if(message.status === 'received'){
-          this.mex = message.date.slice(11, 16)
-      }
+sendMessage() {
+    this.$emit('messagesent', {
+        message: this.messageText,
     });
-  }
+    this.messageText = '';
+},
+reply(){
+    const message = {
+        date: '10/01/2020 15:30:55',
+        message: 'ok',
+        status: 'received'
+    }
+    this.contacts[this.active].messages.push(message)
+}
 }).mount('#app')
