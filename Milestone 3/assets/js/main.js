@@ -11,7 +11,8 @@ data() {
 return {
     mex :'',
     active: 0,
-    messageText: '',
+    error: false,
+    newMessage: '',
     contacts: [
         {
             name: 'Michele',
@@ -191,15 +192,26 @@ methods: {
 
 },
 
-sendMessage() {
-    this.$emit('messagesent', {
-        message: this.messageText,
-    });
-    this.messageText = '';
+addMessage() {
+    console.log('Ho cliccato su Add Message');
+    console.log(this.newMessage);
+   
+
+    if (this.newMessage.length < 100){
+        this.error = true
+
+    } else {
+        this.error = false
+        this.messsage.unshift(this.newMessage);
+        this.newMessage = '';
+    }
+
+    
 },
+
 reply(){
     const message = {
-        date: '10/01/2020 15:30:55',
+        date: '10/01/2020 10:28:55',
         message: 'ok',
         status: 'received'
     }

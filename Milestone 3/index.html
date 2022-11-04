@@ -102,7 +102,7 @@
                         <section class="text_message">
                             <div class="input-group">
                                 <span class="input-group-text "><i class="fa-regular fa-face-smile"></i></span>
-                                <input type="text" class="form-control rounded" placeholder="Scrivi un messaggio" v-model="messageText" @keyup.enter="sendMessage">
+                                <input type="text" class="form-control rounded" placeholder="Scrivi un messaggio" v-model="newMessage.message" @keyup.enter="addMessage">
                                 <span class="input-group-text"><i class="fa-solid fa-microphone"></i></span>
                               </div>
                         </section>
