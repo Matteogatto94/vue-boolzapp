@@ -10,6 +10,7 @@ data() {
 return {
     mex :'',
     active: 0,
+    username: '',
     error: false,
     newMessage: '',
     contacts: [
@@ -215,5 +216,25 @@ reply(){
         status: 'received'
     }
     this.contacts[this.active].messages.push(message)
+},
+cercanome(){
+              
+    this.contacts.forEach(person => {
+        person.visible = false
+        const contactName = person.name.toLowerCase();
+        const doing = this.username.toLowerCase()
+        const contactWord ='';
+        for (let i = 0; i < contactName.length ; i++) {
+            contactWord += contactName.charAt(i);
+            console.log(input, contactWord);
+            if (contactWord === input){
+                person.visible = true
+            } 
+        }
+        if(doing === ''){
+            person.visible = true
+        }
+    });
 }
+
 }).mount('#app')
