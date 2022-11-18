@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,13 +13,15 @@
     <link rel="stylesheet" href="./assets/css/style.css">
 
     <!--Link Bootstrap-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 
     <!-- Link Font Awesome-->
     <script src="https://kit.fontawesome.com/641e4c79bb.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
-    
+
     <div id="app">
         <div class="top">
             <div class="container">
@@ -54,18 +57,24 @@
                                 <div class="input-group">
                                     <div class="input-group-text"><i class="fa-solid fa-magnifying-glass me-3"></i>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat" v-model="username" @input="cercanome">
+                                    <input type="search" class="form-control"
+                                        placeholder="Cerca o inizia una nuova chat" v-model="filterContacts"
+                                        @keyup.enter="searchContacts">
                                 </div>
                             </section>
                             <section class="contacts">
-                                <div :class=" index == active ? 'active_chat' :'' " class="contact d-flex align-items-center" v-for="(person, index) in contacts" @click="changeActive(index)">                                 
+                                <div :class=" i == activeContact ? 'active_chat' :'' "
+                                    class="contact d-flex align-items-center"
+                                    v-for="(person, i) in searchContacts(contacts)" @click="setActiveContact(i)">
                                     <div class="image">
                                         <img :src="'./assets/img/avatar'+ person.avatar +'.jpg'" alt="">
                                     </div>
 
                                     <div class="name">
                                         <p>{{person.name}}</p>
-                                        <p class="text_grey" :class=" person.messages[person.messages.length-1].status =='sent' ? 'visto' : '' "> {{ person.messages[person.messages.length-1].message}}</p>
+                                        <p class="text_grey"
+                                            :class=" person.messages[person.messages.length-1].status =='sent' ? 'visto' : '' ">
+                                            {{ person.messages[person.messages.length-1].message}}</p>
                                     </div>
                                 </div>
                             </section>
@@ -79,8 +88,7 @@
                             <div class="d-flex align-items-center">
                                 <div class="image"><img src="assets/img/avatar_1.jpg" alt=""></div>
                                 <div class="contact_details">
-                                    <div class="name">{{contacts[active].name}}</div>
-                                    <div class="last_access px-3">Ultimo accesso oggi alle {{mex}}</div>
+                                    <div class="name">{{contacts[activeContact].name}}</div>
                                 </div>
 
                             </div>
@@ -90,11 +98,11 @@
                                 <i class="fa-solid fa-ellipsis-vertical"></i>
                             </div>
 
-                        </section> 
+                        </section>
 
-                        <section class="messages" v-for="message in contacts[active].messages" :class=" message.status === 'sent' ? 'send' : 'received'">
+                        <section class="messages" v-for="message in contacts[activeContact].messages"
+                            :class=" message.status === 'sent' ? 'send' : 'received'">
                             <div>{{message.message}}</div>
-                            <div>{{message.date.slice(11, 16)}}</div>
                         </section>
 
 
@@ -102,9 +110,10 @@
                         <section class="text_message">
                             <div class="input-group">
                                 <span class="input-group-text "><i class="fa-regular fa-face-smile"></i></span>
-                                <input type="text" class="form-control rounded" placeholder="Scrivi un messaggio" v-model="newMessage.message" @keyup.enter="addMessage">
+                                <input type="text" class="form-control rounded" placeholder="Scrivi un messaggio"
+                                    v-model="newMessage" @keyup.enter="addNewMessage">
                                 <span class="input-group-text"><i class="fa-solid fa-microphone"></i></span>
-                              </div>
+                            </div>
                         </section>
                     </div>
 
@@ -114,10 +123,10 @@
         </div>
 
         <div class="bottom">
-            
+
         </div>
 
-        
+
 
     </div>
 
@@ -125,4 +134,5 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="./assets/js/main.js"></script>
 </body>
+
 </html>
