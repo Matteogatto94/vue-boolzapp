@@ -192,13 +192,19 @@ createApp({
 
                 this.contacts[this.activeContact].messages.push(newMess)
             }
+
+            setTimeout(this.addReply, 1000);
+            this.newMessage = '';
+        },
+        addReply() {
+            const newMess = {
+                date: '10/01/2020 15:51:00',
+                message: "ok",
+                status: 'received'
+            }
+
+            this.contacts[this.activeContact].messages.push(newMess)
         }
 
     }
-
-
-
-
-
-
 }).mount('#app')
